@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">-->
+	
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src * 'unsafe-inline'">
+    <title>sqlcipher test</title>
+	<script src="./renderer.js"></script>
+  </head>
+  <body>
+    <h1>sqlcipher 测试</h1>
+    Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+	
+	<br><br>
+	把sqlcipher编译为electron模块
+	<br><br>
+	命令：
+	<br><br>
+	npm install --save "@journeyapps/sqlcipher"
+	<br><br>
+	cd node_modules\@journeyapps\sqlcipher
+	<br><br>
+	node-pre-gyp rebuild --runtime=electron --target=9.3.5 --msvs_version=2015 --arch=ia32 --disturl=https://atom.io/download/atom-shell --abi=80
+	<br><br>
+	<br><br>
+	<br><br>
+    <!-- You can also require other files to run in this process -->
+	<br/>
+	<button id = "TestSqlite">测试sqlite读写</button><br/>
+	
+	<script>
+		document.querySelector("#TestSqlite").onclick = function (){
+			console.log("=>TestSqlite");
+			console.log(testSqlcipher());
+		}
+	</script>
+	
+  </body>
+</html>
